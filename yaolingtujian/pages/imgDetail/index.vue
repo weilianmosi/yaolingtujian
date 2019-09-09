@@ -1,17 +1,17 @@
 <template>
-	<view class="content">
+	<view style="background-image: url('/static/drawable-xhdpi/ILLUSTRATION_Background.png');" class="content">
 		<view class="top">
 			<view>妖灵图鉴</view>
 		</view>
 		<view class="detail">
 			<view class="left">
-				<img src="/static/drawable-xhdpi/ILLUSTRATION_Arrow_Left.png" alt="">
+				<image style="width:100%" src="/static/drawable-xhdpi/ILLUSTRATION_Arrow_Left.png" mode="widthFix"></image>
 			</view>
 			<view class="detailimg">
-				<img src="http://hy.gwgo.qq.com/sync/pet/512_body/5_XiaoHuanXiong_big.png" alt="">
+				<image style="width:100%" src="http://hy.gwgo.qq.com/sync/pet/512_body/5_XiaoHuanXiong_big.png" mode="widthFix"></image>
 			</view>
 			<view class="right">
-				<img src="/static/drawable-xhdpi/ILLUSTRATION_Arrow_Right.png" alt="">
+				<image style="width:100%" src="/static/drawable-xhdpi/ILLUSTRATION_Arrow_Right.png" mode="widthFix"></image>
 			</view>
 		</view>
 		<view class="introduction">
@@ -49,19 +49,19 @@
 				<view class="parameter">
 					<view class="picture">
 						<view>
-							<img class="img1" src="/static/drawable-xhdpi/ILLUSTRATION_physical_attack_Icon.png" alt="">
+							<image class="img1" src="/static/drawable-xhdpi/ILLUSTRATION_physical_attack_Icon.png" mode="widthFix"></image>
 						</view>
 						<view>
-							<img class="img2" src="/static/drawable-xhdpi/ILLUSTRATION_Physical_defense_Icon.png" alt="">
+							<image class="img2" src="/static/drawable-xhdpi/ILLUSTRATION_Physical_defense_Icon.png" mode="widthFix"></image>
 						</view>
 						<view>
-							<img class="img3" src="/static/drawable-xhdpi/ILLUSTRATION_Spell_attacks_Icon.png" alt="">
+							<image class="img3" src="/static/drawable-xhdpi/ILLUSTRATION_Spell_attacks_Icon.png" mode="widthFix"></image>
 						</view>
 						<view>
-							<img  class="img4" src="/static/drawable-xhdpi/ILLUSTRATION_Spell_defense_Icon.png" alt="">
+							<image  class="img4" src="/static/drawable-xhdpi/ILLUSTRATION_Spell_defense_Icon.png" mode="widthFix"></image>
 						</view>
 						<view>
-							<img  class="img5" src="/static/drawable-xhdpi/ILLUSTRATION_health_point_Icon.png" alt="">
+							<image  class="img5" src="/static/drawable-xhdpi/ILLUSTRATION_health_point_Icon.png" mode="widthFix"></image>
 						</view>
 					</view>
 					<view class="description">
@@ -136,10 +136,10 @@
 							</view>
 							<view class="resimg">
 								<view style="width:55.55upx;">
-									<img style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Shui.png" alt="">
+									<image style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Shui.png" mode="widthFix"></image>
 								</view>
 								<view style="width:55.55upx; margin-left: 11.11upx;">
-									<img style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Yao.png" alt="">
+									<image style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Yao.png" mode="widthFix"></image>
 								</view>
 							</view>
 							<view class="restext" style="margin-top:9.72upx">
@@ -151,14 +151,14 @@
 						</view>
 						<view class="beRestraintAttr">
 							<view class="beRestrain">
-								克制
+								被克制
 							</view>
 							<view class="resimg">
 								<view style="width:55.55upx;">
-									<img style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Mu.png" alt="">
+									<image style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Mu.png" mode="widthFix"></image>
 								</view>
 								<view style="width:55.55upx; margin-left: 11.11upx;">
-									<img style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Lei.png" alt="">
+									<image style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Lei.png" mode="widthFix"></image>
 								</view>
 							</view>
 							<view class="restext" style="margin-top:9.72upx">
@@ -188,8 +188,8 @@
 									臭屁
 								</view>
 								<view class="cdimg">
-									<img sytle="width:100%;" src="/static/drawable-xhdpi/ILLUSTRATION_consume_Icon.png" alt="">
-									<text style="color: #7feded; margin-left: 10.41upx;">2</text>
+									<image style="width:100%; margin-top:-10.41upx" src="/static/drawable-xhdpi/ILLUSTRATION_consume_Icon.png" mode="widthFix"></image>
+									<view style="color: #7feded; margin-left: 27.77upx; margin-top: -34.02upx;">2</view>
 								</view>
 								<view class="cd">
 									CD:<text style="color: #7feded">2</text>秒
@@ -232,9 +232,7 @@
 </template>
 
 <script>
-	import uniSteps from "@/components/uni-steps/uni-steps.vue" 
 	export default {
-		components:{uniSteps},
 		data() {
 			return {
 				
@@ -256,7 +254,7 @@
 		/* align-items: center;
 		justify-content: center; */
 		font-family: "Source Han Sans CN";
-		background-image: url('/static/drawable-xhdpi/ILLUSTRATION_Background.png');
+		background-size: contain;
 	}
 	.top {
 		height:75.69upx;
@@ -275,6 +273,9 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+	}
+	.detailimg {
+		width:513.88upx;
 	}
 	.left {
 		position:absolute;
@@ -395,7 +396,7 @@
 		padding-bottom: 42.36upx;
 		justify-content: space-between;
 	}
-	.picture img {
+	.picture image {
 		position:relative;
 		width: 23.61upx;
 	}
@@ -587,6 +588,10 @@
 		position:relative;
 		left: 98.61upx;
 		top: 6.94upx;
+		width:18.05upx;
+		height:22.91upx;
+		box-sizing: border-box;
+		padding-top: 4.16upx;
 	}
 	.skillBottom {
 		font-size: 18.05upx;

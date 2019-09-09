@@ -1,0 +1,127 @@
+
+.content {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: column;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+		font-size: 16.66rpx;
+		xbackground-image: url('/static/drawable-xhdpi/INTRODUCTION_Background.png');
+		xbackground-size: cover;
+}
+.top {
+	height:88.88rpx;
+	width: 100%;
+	font-size: 41.66rpx;
+	text-align: center;
+	line-height: 88.88rpx;
+	color: #f2f2f2;
+	background-image: url('/static/drawable-xhdpi/Back.png');
+	background-repeat: no-repeat;
+	background-position-x: 27.08rpx;
+	background-position-y: 20.83rpx;
+	background-color: green;
+}
+.lingshitupian {
+	height: 329.86rpx;
+	width: 100%;
+	padding-left:54.86rpx;
+	padding-right: 72.22rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	background-size: cover;
+}
+.selected {
+	width: 145.13rpx;
+	height: 44.44rpx;
+	background-size: cover;
+	position: relative;
+	text-align: center;
+	line-height: 33rpx;
+	top:24.3rpx;
+}
+.nselected {
+	width:111.8rpx;
+	height: 33.33rpx;
+	background-size: cover;
+	position: relative;
+	text-align: center;
+	line-height: 27.77rpx;
+	top:56.25rpx;
+}
+.selectedAfter {
+	position: relative;
+	width:166.66rpx;
+	height: 220.83rpx;
+	left:-13.88rpx;
+	top: 6.94rpx;
+}
+.nselectedAfter {
+	width:125rpx;
+	height: 166.66rpx;
+	position: relative;
+	left:-8.33rpx;
+	top: 6.94rpx;
+}
+.lingshishuju {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	width: 100%;
+	padding-left: 1.38rpx;
+	padding-right:8.33rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-flex-wrap:wrap;
+	    -ms-flex-wrap:wrap;
+	        flex-wrap:wrap;
+}
+.lingshilist {
+	width: 117.36rpx;
+	height: 117.36rpx;
+	margin: 47.91rpx 33.33rpx 0;
+	background-size: cover;
+}
+.lingshilist view {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	border-radius: 6944.44rpx;
+}
+.lingshilist::after {
+	content: '\5C0F\6D63\718A';
+	display: block;
+	position: relative;
+	width: 88.88rpx;
+	height: 27.77rpx;
+	background-color: #95dcdc;
+	border-radius: 8px;
+	text-align: center;
+	line-height: 27.77rpx;
+	top: 6.25rpx;
+	left: 14.23rpx;
+}
+

@@ -1,0 +1,106 @@
+
+.content {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	font-family: "Source Han Sans CN";
+	color:#666;
+}
+.top {
+	background-image: url("/static/drawable-xhdpi/妖灵图鉴最上底色图.png");
+}
+.search {
+	width:705.55rpx;
+	margin:18.75rpx 15.97rpx 15.27rpx;
+	height:55.55rpx;
+	border: solid 0.69rpx #333333;
+	border-radius: 10.41rpx;
+	background-color: #fff;
+}
+.nav {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+.nav view {
+	width: 177.77rpx;
+	height: 63.88rpx;
+	font-size: 25rpx;
+	line-height: 63.88rpx;
+	background-color: #fff;
+	text-align: center;
+	border: solid #666 0.69rpx;
+	border-top-left-radius: 13.88rpx;
+	border-top-right-radius: 13.88rpx;
+}
+.contain {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	padding: 17.36rpx 27.08rpx 18.75rpx 27.08rpx;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-flex-wrap:wrap;
+	    -ms-flex-wrap:wrap;
+	        flex-wrap:wrap;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	background-color: #f7f7f7;
+}
+.imgshow {
+	background-size: cover;
+	border-radius: 13.88rpx;
+	border:solid black 0.69rpx;
+	width:214.58rpx;
+	height: 292.36rpx;
+	margin-top: 14.58rpx;
+	position: relative;
+}
+.mainImg {
+	width: 100%;
+}
+.name {
+	font-size: 25rpx;
+	text-align: center;
+	color: #666666;
+	margin:22.91rpx;
+}
+.footer {
+	text-align: center;
+	font-size: 25rpx;
+	margin-bottom: 17.36rpx;
+}
+.characteristic {
+	position: absolute;
+	width:38.88rpx;
+	height: 38.88rpx;
+	top:11.11rpx;
+	left:11.11rpx;
+}
+.characteristic ._img {
+	width:38.88rpx;
+	height: 38.88rpx;
+}
+

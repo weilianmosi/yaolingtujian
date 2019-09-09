@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/shouye/index",
+    "pages/index/index",
+    "pages/imgDetail/index",
+    "pages/lingshijieshao2km/index"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "red",
+    "backgroundColor": "#F8F8F8"
+  },
+  "nvueCompiler": "weex",
+  "renderer": "auto",
+  "splashscreen": {
+    "alwaysShowBeforeRender": true,
+    "autoclose": false
+  },
+  "appname": "yaolingtujian",
+  "compilerVersion": "2.2.2",
+  "usingComponents": {}
+}

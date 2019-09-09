@@ -3,21 +3,33 @@
 		<view class="top">
 			灵石介绍
 		</view>
-		<view class="lingshitupian">
-			<view class="two">
+		<view style="background-image: url('/static/drawable-xhdpi/INTRODUCTION_Background.png');" class="lingshitupian">
+			<view style="background-image: url('/static/drawable-xhdpi/Bubble_Selected.png');" :class="two ? selected: nselected" @click="twoClick">
 				2千米灵石
+				<view :class="two ? selectedAfter: nselectedAfter">
+					<image style="width:100%" v-if="two" src="/static/drawable-xhdpi/2km_Lingshi_Big.png" mode="widthFix"></image>
+					<image style="width:100%" v-else src="/static/drawable-xhdpi/2km_Lingshi_Mini.png" mode="widthFix"></image>
+				</view>
 			</view>
-			<view class="five">
+			<view style="background-image: url('/static/drawable-xhdpi/Bubble_Default.png');" :class="five ? selected: nselected" @click="fiveClick">
 				5千米灵石
+				<view :class="five ? selectedAfter: nselectedAfter">
+					<image style="width:100%" v-if="five" src="/static/drawable-xhdpi/5km_Lingshi_Big.png" mode="widthFix"></image>
+					<image style="width:100%" v-else src="/static/drawable-xhdpi/5km_Lingshi_Mini.png" mode="widthFix"></image>
+				</view>
 			</view>
-			<view class="ten">
+			<view style="background-image: url('/static/drawable-xhdpi/Bubble_Default.png');" :class="ten ? selected: nselected" @click="tenClick">
 				10千米灵石
+				<view :class="ten ? selectedAfter: nselectedAfter">
+					<image style="width:100%" v-if="ten" src="/static/drawable-xhdpi/10km_Lingshi_Big.png" mode="widthFix"></image>
+					<image style="width:100%" v-else src="/static/drawable-xhdpi/10km_Lingshi_Mini.png" mode="widthFix"></image>
+				</view>
 			</view>
 		</view>
 		<view class="lingshishuju">
-			<view class="lingshilist" v-for="(item,index) of spriteData">
+			<view style="background-image: url('/static/drawable-xhdpi/Head_Background.png');" class="lingshilist" v-for="(item,index) of spriteData">
 				<view>
-					<img :src="item.headImgName" alt="">
+					<image style="width:100%" :src="item.headImgName" mode="widthFix"></image>
 				</view>
 			</view>
 		</view>
@@ -30,7 +42,14 @@
 		data() {
 			return {
 				sprite: sprite,
-				spriteData: sprite.spriteData 
+				spriteData: sprite.spriteData,
+				two: true,
+				five: false,
+				ten: false,
+				selected: 'selected',
+				nselected: 'nselected',
+				selectedAfter: 'selectedAfter',
+				nselectedAfter: 'nselectedAfter',
 			}
 		},
 		onLoad() {
@@ -39,9 +58,21 @@
 			})
 		},
 		methods: {
-			// dayin(e) {
-			// 	console.log('aaa')
-			// },
+			twoClick() {
+				this.two = true
+				this.five = false
+				this.ten = false
+			},
+			fiveClick() {
+				this.five = true
+				this.two = false
+				this.ten = false
+			},
+			tenClick() {
+				this.ten = true
+				this.five = false
+				this.two = false
+			}
 		}
 	}
 </script>
@@ -51,11 +82,8 @@
 			display: flex;
 			flex-direction: column;
 			font-size: 16.66upx;
-			/* align-items: center;
-			justify-content: center; */
 			xbackground-image: url('/static/drawable-xhdpi/INTRODUCTION_Background.png');
 			xbackground-size: cover;
-			
 		}
 	.top {
 		height:88.88upx;
@@ -79,71 +107,38 @@
 		flex-direction: row;
 		box-sizing: border-box;
 		justify-content: space-between;
-		background-image: url('/static/drawable-xhdpi/INTRODUCTION_Background.png');
 		background-size: cover;
 	}
-	.two {
+	.selected {
 		width: 145.13upx;
 		height: 44.44upx;
-		background-image: url('/static/drawable-xhdpi/Bubble_Selected.png');
 		background-size: cover;
 		position: relative;
 		text-align: center;
 		line-height: 33upx;
 		top:24.3upx;
 	}
-	.five {
+	.nselected {
 		width:111.8upx;
 		height: 33.33upx;
-		background-image: url('/static/drawable-xhdpi/Bubble_Default.png');
 		background-size: cover;
 		position: relative;
 		text-align: center;
 		line-height: 27.77upx;
 		top:56.25upx;
 	}
-	.ten {
-		width:111.8upx;
-		height: 33.33upx;
-		text-align: center;
-		line-height: 27.77upx;
-		background-image: url('/static/drawable-xhdpi/Bubble_Default.png');
-		background-size: cover;
-		position: relative;
-		top:56.25upx;
-	}
-	.five::after {
-		content: '';
-		display: block;
-		width:125upx;
-		height: 166.66upx;
-		background-image: url('/static/drawable-xhdpi/5km_Lingshi_Mini.png');
-		background-size: cover;
-		position: relative;
-		left:-8.33upx;
-		top: 6.94upx;
-	}
-	.ten::after {
-		content: '';
-		display: block;
-		position: relative;
-		width:125upx;
-		height: 166.66upx;
-		background-image: url('/static/drawable-xhdpi/10km_Lingshi_Mini.png');
-		background-size: cover;
-		position: relative;
-		left:-8.33upx;
-		top: 6.94upx;
-	}
-	.two::after {
-		content: '';
-		display: block;
+	.selectedAfter {
 		position: relative;
 		width:166.66upx;
 		height: 220.83upx;
-		background-image: url('/static/drawable-xhdpi/2km_Lingshi_Big.png');
-		background-size: cover;
 		left:-13.88upx;
+		top: 6.94upx;
+	}
+	.nselectedAfter {
+		width:125upx;
+		height: 166.66upx;
+		position: relative;
+		left:-8.33upx;
 		top: 6.94upx;
 	}
 	.lingshishuju {
@@ -159,18 +154,13 @@
 		width: 117.36upx;
 		height: 117.36upx;
 		margin: 47.91upx 33.33upx 0;
-		background-image: url('/static/drawable-xhdpi/Head_Background.png');
 		background-size: cover;
-		
 	}
 	.lingshilist view {
 		width: 100%;
 		height: 100%;
 		overflow: hidden;
 		border-radius: 6944.44rpx;
-	}
-	.lingshilist img {
-		width: 100%;
 	}
 	.lingshilist::after {
 		content: '小浣熊';

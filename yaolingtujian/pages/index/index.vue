@@ -12,9 +12,9 @@
 			</view>
 		</view>
 		<view class="contain">
-			<view class="imgshow" v-for="(item,index) of spriteData">
+			<view style="background-image: url('/static/drawable-xhdpi/ILLUSTRATION_Card_Background.png')" class="imgshow" v-for="(item,index) of spriteData" >
 					<view class="mainImg">
-						<img style="width:100%;" v-bind:src= "item.bodyImgName">
+						<image style="width:100%" :src="item.bodyImgName" mode="widthFix"></image>
 					</view>
 					<view class="characteristic" >
 						<img v-if="item.fiveEle[0] ==='金'" src="/static/drawable-xhdpi/Property_40px_Jin.png" mode="">
@@ -82,10 +82,6 @@
 	.nav view {
 		width: 177.77upx;
 		height: 63.88upx;
-		xbackground-image: url("/static/drawable-xhdpi/ILLUSTRATION_Arrow_Under.png");
-		xbackground-position-x: 70%;
-		xbackground-position-y: 50%;
-		xbackground-repeat: no-repeat;
 		font-size: 25upx;
 		line-height: 63.88upx;
 		background-color: #fff;
@@ -103,7 +99,6 @@
 		background-color: #f7f7f7;
 	}
 	.imgshow {
-		background-image: url("/static/drawable-xhdpi/ILLUSTRATION_Card_Background.png");
 		background-size: cover;
 		border-radius: 13.88upx;
 		border:solid black 0.69upx;
@@ -119,7 +114,7 @@
 		font-size: 25upx;
 		text-align: center;
 		color: #666666;
-		margin:13.88upx;
+		margin:22.91upx;
 	}
 	.footer {
 		text-align: center;
@@ -128,14 +123,13 @@
 	}
 	.characteristic {
 		position: absolute;
-		xbackground-image: url("/static/drawable-xhdpi/Property_40px_Jin.png");
-		xbackground-size: cover;
 		width:38.88upx;
 		height: 38.88upx;
 		top:11.11upx;
 		left:11.11upx;
 	}
 	.characteristic img {
-		width: 100%;
+		width:38.88upx;
+		height: 38.88upx;
 	}
 </style>
