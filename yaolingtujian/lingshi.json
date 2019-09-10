@@ -1,0 +1,354 @@
+[
+    {
+        "eggItemId": 2300001,
+        "eggItemName": "初级灵石",
+        "eggItemDesc": "因为感应到了人类的情感而发光的石头，放进唤灵器中行走2千米可以将其中沉睡的妖灵唤醒。",
+        "needDis": 2000,
+        "poolDropId": 150041,
+        "dropData": [
+            {
+                "spriteId": 2000401,
+                "spriteNum": 1,
+                "spriteRatio": 3
+            },
+            {
+                "spriteId": 2000402,
+                "spriteNum": 1,
+                "spriteRatio": 3
+            },
+            {
+                "spriteId": 2000403,
+                "spriteNum": 1,
+                "spriteRatio": 3
+            },
+            {
+                "spriteId": 2000188,
+                "spriteNum": 1,
+                "spriteRatio": 5.5
+            },
+            {
+                "spriteId": 2000271,
+                "spriteNum": 1,
+                "spriteRatio": 5.5
+            },
+            {
+                "spriteId": 2000272,
+                "spriteNum": 1,
+                "spriteRatio": 5.5
+            },
+            {
+                "spriteId": 2000501,
+                "spriteNum": 1,
+                "spriteRatio": 4
+            },
+            {
+                "spriteId": 2000502,
+                "spriteNum": 1,
+                "spriteRatio": 4
+            },
+            {
+                "spriteId": 2000519,
+                "spriteNum": 1,
+                "spriteRatio": 4
+            },
+            {
+                "spriteId": 2000504,
+                "spriteNum": 1,
+                "spriteRatio": 4
+            },
+            {
+                "spriteId": 2000024,
+                "spriteNum": 1,
+                "spriteRatio": 3
+            },
+            {
+                "spriteId": 2000027,
+                "spriteNum": 1,
+                "spriteRatio": 3
+            },
+            {
+                "spriteId": 2000156,
+                "spriteNum": 1,
+                "spriteRatio": 5.5
+            },
+            {
+                "spriteId": 2000200,
+                "spriteNum": 1,
+                "spriteRatio": 5.5
+            },
+            {
+                "spriteId": 2000209,
+                "spriteNum": 1,
+                "spriteRatio": 5.5
+            },
+            {
+                "spriteId": 2000078,
+                "spriteNum": 1,
+                "spriteRatio": 5.5
+            },
+            {
+                "spriteId": 2004019,
+                "spriteNum": 1,
+                "spriteRatio": 5.5
+            },
+            {
+                "spriteId": 2000197,
+                "spriteNum": 1,
+                "spriteRatio": 6
+            },
+            {
+                "spriteId": 2000004,
+                "spriteNum": 1,
+                "spriteRatio": 5.5
+            },
+            {
+                "spriteId": 2000075,
+                "spriteNum": 1,
+                "spriteRatio": 5.5
+            },
+            {
+                "spriteId": 2000512,
+                "spriteNum": 1,
+                "spriteRatio": 4
+            },
+            {
+                "spriteId": 2000513,
+                "spriteNum": 1,
+                "spriteRatio": 4
+            }
+        ]
+    },
+    {
+        "eggItemId": 2300002,
+        "eggItemName": "中级灵石",
+        "eggItemDesc": "感应到了人类丰富情感的灵石，放进唤灵器中行走5千米可以将其中沉睡的妖灵唤醒。",
+        "needDis": 5000,
+        "poolDropId": 150042,
+        "dropData": [
+            {
+                "spriteId": 2000317,
+                "spriteNum": 1,
+                "spriteRatio": 2.5
+            },
+            {
+                "spriteId": 2000313,
+                "spriteNum": 1,
+                "spriteRatio": 2.5
+            },
+            {
+                "spriteId": 2000416,
+                "spriteNum": 1,
+                "spriteRatio": 3.25
+            },
+            {
+                "spriteId": 2004026,
+                "spriteNum": 1,
+                "spriteRatio": 4
+            },
+            {
+                "spriteId": 2000112,
+                "spriteNum": 1,
+                "spriteRatio": 2.5
+            },
+            {
+                "spriteId": 2000149,
+                "spriteNum": 1,
+                "spriteRatio": 2.5
+            },
+            {
+                "spriteId": 2000506,
+                "spriteNum": 1,
+                "spriteRatio": 3.25
+            },
+            {
+                "spriteId": 2000507,
+                "spriteNum": 1,
+                "spriteRatio": 3.25
+            },
+            {
+                "spriteId": 2000508,
+                "spriteNum": 1,
+                "spriteRatio": 3.25
+            },
+            {
+                "spriteId": 2000509,
+                "spriteNum": 1,
+                "spriteRatio": 3.25
+            },
+            {
+                "spriteId": 2000217,
+                "spriteNum": 1,
+                "spriteRatio": 3.25
+            },
+            {
+                "spriteId": 2000037,
+                "spriteNum": 1,
+                "spriteRatio": 4
+            },
+            {
+                "spriteId": 2000247,
+                "spriteNum": 1,
+                "spriteRatio": 4
+            },
+            {
+                "spriteId": 2000056,
+                "spriteNum": 1,
+                "spriteRatio": 3.25
+            },
+            {
+                "spriteId": 2000177,
+                "spriteNum": 1,
+                "spriteRatio": 3.25
+            },
+            {
+                "spriteId": 2000007,
+                "spriteNum": 1,
+                "spriteRatio": 4
+            },
+            {
+                "spriteId": 2000203,
+                "spriteNum": 1,
+                "spriteRatio": 4
+            },
+            {
+                "spriteId": 2000028,
+                "spriteNum": 1,
+                "spriteRatio": 4
+            },
+            {
+                "spriteId": 2000040,
+                "spriteNum": 1,
+                "spriteRatio": 4
+            },
+            {
+                "spriteId": 2000103,
+                "spriteNum": 1,
+                "spriteRatio": 4
+            },
+            {
+                "spriteId": 2000221,
+                "spriteNum": 1,
+                "spriteRatio": 4
+            },
+            {
+                "spriteId": 2000235,
+                "spriteNum": 1,
+                "spriteRatio": 4
+            },
+            {
+                "spriteId": 2000232,
+                "spriteNum": 1,
+                "spriteRatio": 4
+            },
+            {
+                "spriteId": 2000218,
+                "spriteNum": 1,
+                "spriteRatio": 4
+            },
+            {
+                "spriteId": 2000173,
+                "spriteNum": 1,
+                "spriteRatio": 4
+            },
+            {
+                "spriteId": 2000061,
+                "spriteNum": 1,
+                "spriteRatio": 4
+            },
+            {
+                "spriteId": 2000185,
+                "spriteNum": 1,
+                "spriteRatio": 4
+            },
+            {
+                "spriteId": 2000109,
+                "spriteNum": 1,
+                "spriteRatio": 4
+            }
+        ]
+    },
+    {
+        "eggItemId": 2300003,
+        "eggItemName": "高级灵石",
+        "eggItemDesc": "与人类产生了强烈情感共鸣的灵石，孕育着珍贵的妖灵，放进唤灵器中行走10千米才能将其唤醒。",
+        "needDis": 10000,
+        "poolDropId": 150043,
+        "dropData": [
+            {
+                "spriteId": 2000019,
+                "spriteNum": 1,
+                "spriteRatio": 0.8
+            },
+            {
+                "spriteId": 2000031,
+                "spriteNum": 1,
+                "spriteRatio": 3
+            },
+            {
+                "spriteId": 2000410,
+                "spriteNum": 1,
+                "spriteRatio": 2
+            },
+            {
+                "spriteId": 2000413,
+                "spriteNum": 1,
+                "spriteRatio": 6
+            },
+            {
+                "spriteId": 2000419,
+                "spriteNum": 1,
+                "spriteRatio": 6
+            },
+            {
+                "spriteId": 2000422,
+                "spriteNum": 1,
+                "spriteRatio": 6
+            },
+            {
+                "spriteId": 2000321,
+                "spriteNum": 1,
+                "spriteRatio": 6
+            },
+            {
+                "spriteId": 2000324,
+                "spriteNum": 1,
+                "spriteRatio": 6
+            },
+            {
+                "spriteId": 2000106,
+                "spriteNum": 1,
+                "spriteRatio": 6
+            },
+            {
+                "spriteId": 2000238,
+                "spriteNum": 1,
+                "spriteRatio": 9.7
+            },
+            {
+                "spriteId": 2000268,
+                "spriteNum": 1,
+                "spriteRatio": 9.7
+            },
+            {
+                "spriteId": 2000265,
+                "spriteNum": 1,
+                "spriteRatio": 9.7
+            },
+            {
+                "spriteId": 2000327,
+                "spriteNum": 1,
+                "spriteRatio": 9.7
+            },
+            {
+                "spriteId": 2000241,
+                "spriteNum": 1,
+                "spriteRatio": 9.7
+            },
+            {
+                "spriteId": 2000034,
+                "spriteNum": 1,
+                "spriteRatio": 9.7
+            }
+        ]
+    }
+]

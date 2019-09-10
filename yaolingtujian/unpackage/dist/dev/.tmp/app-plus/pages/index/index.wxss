@@ -12,8 +12,13 @@
 	font-family: "Source Han Sans CN";
 	color:#666;
 }
+image {
+	will-change: transform;
+}
+.image {
+	position: relative;
+}
 .top {
-	background-image: url("/static/drawable-xhdpi/妖灵图鉴最上底色图.png");
 	position: relative;
 }
 .search {
@@ -55,7 +60,7 @@
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
-	padding: 17.36rpx 27.08rpx 18.75rpx 27.08rpx;
+	padding: 17.36rpx 0rpx 18.75rpx 27.08rpx;
 	-webkit-box-orient: horizontal;
 	-webkit-box-direction: normal;
 	-webkit-flex-direction: row;
@@ -64,10 +69,6 @@
 	-webkit-flex-wrap:wrap;
 	    -ms-flex-wrap:wrap;
 	        flex-wrap:wrap;
-	-webkit-box-pack: justify;
-	-webkit-justify-content: space-between;
-	    -ms-flex-pack: justify;
-	        justify-content: space-between;
 	background-color: #f7f7f7;
 }
 .imgshow {
@@ -77,10 +78,12 @@
 	width:214.58rpx;
 	height: 292.36rpx;
 	margin-top: 14.58rpx;
+	margin-right: 24rpx;
 	position: relative;
 }
 .mainImg {
-	width: 100%;
+	width:214.58rpx;
+	position: relative;
 }
 .name {
 	font-size: 25rpx;

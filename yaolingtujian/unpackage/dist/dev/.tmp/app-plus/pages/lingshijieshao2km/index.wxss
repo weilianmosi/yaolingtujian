@@ -10,8 +10,9 @@
 		    -ms-flex-direction: column;
 		        flex-direction: column;
 		font-size: 16.66rpx;
-		xbackground-image: url('/static/drawable-xhdpi/INTRODUCTION_Background.png');
-		xbackground-size: cover;
+}
+image {
+		will-change: transform;
 }
 .top {
 	height:88.88rpx;
@@ -68,7 +69,7 @@
 }
 .selectedAfter {
 	position: relative;
-	width:166.66rpx;
+	width: 166.66rpx;
 	height: 220.83rpx;
 	left:-13.88rpx;
 	top: 6.94rpx;
@@ -105,23 +106,21 @@
 	margin: 47.91rpx 33.33rpx 0;
 	background-size: cover;
 }
-.lingshilist view {
+.lingshilist .showImg {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
 	border-radius: 6944.44rpx;
 }
-.lingshilist::after {
-	content: '\5C0F\6D63\718A';
-	display: block;
+.lingshAfter {
 	position: relative;
-	width: 88.88rpx;
 	height: 27.77rpx;
+	width: 76.38rpx;
 	background-color: #95dcdc;
-	border-radius: 8px;
+	border-radius: 8rpx;
 	text-align: center;
 	line-height: 27.77rpx;
 	top: 6.25rpx;
-	left: 14.23rpx;
+	left: 24rpx;
 }
 

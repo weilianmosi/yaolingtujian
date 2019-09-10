@@ -8,7 +8,7 @@
 				<image style="width:100%" src="/static/drawable-xhdpi/ILLUSTRATION_Arrow_Left.png" mode="widthFix"></image>
 			</view>
 			<view class="detailimg">
-				<image style="width:100%" :src="src" mode="widthFix"></image>
+				<image style="width:100%" :src="(sprite.bodyImgUrl + src)" mode="widthFix"></image>
 			</view>
 			<view class="right">
 				<image style="width:100%" src="/static/drawable-xhdpi/ILLUSTRATION_Arrow_Right.png" mode="widthFix"></image>

@@ -7,43 +7,49 @@
 			<view style="background-image: url('/static/drawable-xhdpi/Bubble_Selected.png');" :class="two ? selected : nselected" @click="twoClick">
 				2千米灵石
 				<view :class="two ? selectedAfter: nselectedAfter">
-					<image style="width:100%" v-if="two" src="/static/drawable-xhdpi/2km_Lingshi_Big.png" mode="widthFix"></image>
-					<image style="width:100%" v-else src="/static/drawable-xhdpi/2km_Lingshi_Mini.png" mode="widthFix"></image>
+					<image style="width:100%" src="/static/drawable-xhdpi/2km_Lingshi_Big.png" mode="widthFix"></image>
 				</view>
 			</view>
 			<view style="background-image: url('/static/drawable-xhdpi/Bubble_Default.png');" :class="five ? selected : nselected" @click="fiveClick">
 				5千米灵石
 				<view :class="five ? selectedAfter: nselectedAfter">
-					<image style="width:100%" v-if="five" src="/static/drawable-xhdpi/5km_Lingshi_Big.png" mode="widthFix"></image>
-					<image style="width:100%" v-else src="/static/drawable-xhdpi/5km_Lingshi_Mini.png" mode="widthFix"></image>
+					<image style="width:100%" src="/static/drawable-xhdpi/5km_Lingshi_Big.png" mode="widthFix"></image>
 				</view>
 			</view>
 			<view style="background-image: url('/static/drawable-xhdpi/Bubble_Default.png');" :class="ten ? selected: nselected" @click="tenClick">
 				10千米灵石
 				<view :class="ten ? selectedAfter: nselectedAfter">
-					<image style="width:100%" v-if="ten" src="/static/drawable-xhdpi/10km_Lingshi_Big.png" mode="widthFix"></image>
-					<image style="width:100%" v-else src="/static/drawable-xhdpi/10km_Lingshi_Mini.png" mode="widthFix"></image>
+					<image style="width:100%" src="/static/drawable-xhdpi/10km_Lingshi_Big.png" mode="widthFix"></image>
 				</view>
 			</view>
 		</view>
 		<view v-if="two" class="lingshishuju">
-			<view style="background-image: url('/static/drawable-xhdpi/Head_Background.png');" class="lingshilist" v-for="(item,index) of spriteData">
-				<view>
-					<image style="width:100%" :src="item.headImgName" lazy-load mode="widthFix"></image>
+			<view style="background-image: url('/static/drawable-xhdpi/Head_Background.png');" class="lingshilist" v-for="(item,index) of twoLing">
+				<view class="showImg">
+					<image style="width:100%" :src="item.headImgName" lazy-load="true" mode="widthFix"></image>
+				</view>
+				<view class="lingshAfter">
+					{{item.name}}
 				</view>
 			</view>
 		</view>
 		<view v-else-if="five" class="lingshishuju">
-			<view style="background-image: url('/static/drawable-xhdpi/Head_Background.png');" class="lingshilist" v-for="(item,index) of spriteData">
-				<view>
-					<image style="width:100%" :src="item.headImgName" lazy-load mode="widthFix"></image>
+			<view style="background-image: url('/static/drawable-xhdpi/Head_Background.png');" class="lingshilist" v-for="(item,index) of fiveLing">
+				<view class="showImg">
+					<image style="width:100%" :src="item.headImgName" lazy-load="true" mode="widthFix"></image>
+				</view>
+				<view class="lingshAfter">
+					{{item.name}}
 				</view>
 			</view>
 		</view>
 		<view v-else-if="ten" class="lingshishuju">
-			<view style="background-image: url('/static/drawable-xhdpi/Head_Background.png');" class="lingshilist" v-for="(item,index) of spriteData">
-				<view>
-					<image style="width:100%" :src="item.headImgName" lazy-load mode="widthFix"></image>
+			<view style="background-image: url('/static/drawable-xhdpi/Head_Background.png');" class="lingshilist" v-for="(item,index) of tenLing">
+				<view class="showImg">
+					<image style="width:100%" :src="item.headImgName" lazy-load="true" mode="widthFix"></image>
+				</view>
+				<view class="lingshAfter">
+					{{item.name}}
 				</view>
 			</view>
 		</view>
@@ -52,6 +58,7 @@
 
 <script>
 	import sprite from '../../yaolingtujian.json'
+	import lingshi from '../../lingshi.json'
 	export default {
 		data() {
 			return {
@@ -64,11 +71,44 @@
 				nselected: 'nselected',
 				selectedAfter: 'selectedAfter',
 				nselectedAfter: 'nselectedAfter',
+				twoLing: [],
+				fiveLing: [],
+				tenLing: [],
 			}
 		},
 		onLoad() {
-			this.spriteData.forEach(item => {
-				item.headImgName = this.sprite.headImgUrl + item.headImgName
+			var twoDropData = lingshi[0].dropData
+			this.twoLing = this.spriteData.filter(item => {
+				for(let i = 0; i < twoDropData.length; i++) {
+					if(twoDropData[i].spriteId === item.id) {
+						return item
+					}
+				}
+			})
+			this.twoLing.forEach(twoItem => {
+				twoItem.headImgName = this.sprite.headImgUrl + twoItem.headImgName
+			})
+			var fiveDropData = lingshi[1].dropData
+			this.fiveLing = this.spriteData.filter(item => {
+				for(let i = 0; i < fiveDropData.length; i++) {
+					if(fiveDropData[i].spriteId === item.id) {
+						return item
+					}
+				}
+			})
+			this.fiveLing.forEach(fiveItem => {
+				fiveItem.headImgName = this.sprite.headImgUrl + fiveItem.headImgName
+			})
+			var tenDropData = lingshi[2].dropData
+			this.tenLing = this.spriteData.filter(item => {
+				for(let i = 0; i < tenDropData.length; i++) {
+					if(tenDropData[i].spriteId === item.id) {
+						return item
+					}
+				}
+			})
+			this.tenLing.forEach(tenItem => {
+				tenItem.headImgName = this.sprite.headImgUrl + tenItem.headImgName
 			})
 		},
 		methods: {
@@ -76,6 +116,7 @@
 				this.two = true
 				this.five = false
 				this.ten = false
+				
 			},
 			fiveClick() {
 				this.five = true
@@ -96,8 +137,9 @@
 			display: flex;
 			flex-direction: column;
 			font-size: 16.66upx;
-			xbackground-image: url('/static/drawable-xhdpi/INTRODUCTION_Background.png');
-			xbackground-size: cover;
+		}
+	image {
+			will-change: transform;
 		}
 	.top {
 		height:88.88upx;
@@ -143,7 +185,7 @@
 	}
 	.selectedAfter {
 		position: relative;
-		width:166.66upx;
+		width: 166.66upx;
 		height: 220.83upx;
 		left:-13.88upx;
 		top: 6.94upx;
@@ -170,23 +212,21 @@
 		margin: 47.91upx 33.33upx 0;
 		background-size: cover;
 	}
-	.lingshilist view {
+	.lingshilist .showImg {
 		width: 100%;
 		height: 100%;
 		overflow: hidden;
 		border-radius: 6944.44rpx;
 	}
-	.lingshilist::after {
-		content: '小浣熊';
-		display: block;
+	.lingshAfter {
 		position: relative;
-		width: 88.88upx;
 		height: 27.77upx;
+		width: 76.38upx;
 		background-color: #95dcdc;
-		border-radius: 8px;
+		border-radius: 8upx;
 		text-align: center;
 		line-height: 27.77upx;
 		top: 6.25upx;
-		left: 14.23upx;
+		left: 24upx;
 	}
 </style>

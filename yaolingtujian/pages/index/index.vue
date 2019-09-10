@@ -14,29 +14,11 @@
 				<view>排序</view>
 			</view>
 		</view>
-		<view style="background-image: url('/static/drawable-xhdpi/ILLUSTRATION_Card_Background.png'); margin-left: 27.08upx; margin-top: 31.94upx;" 
-			v-if="search" class="imgshow">
-				<view class="mainImg">
-					<image style="width:100%" :src="srcSearch" lazy-load mode="widthFix"></image>
-				</view>
-				<view class="characteristic">
-					<img v-if="fiveEle[0] ==='金'" src="/static/drawable-xhdpi/Property_40px_Jin.png" mode="">
-					<img v-else-if="fiveEle[0] ==='木'" src="/static/drawable-xhdpi/Property_40px_Mu.png" mode="">
-					<img v-else-if="fiveEle[0] ==='水'" src="/static/drawable-xhdpi/Property_40px_Shui.png" mode="">
-					<img v-else-if="fiveEle[0] ==='火'" src="/static/drawable-xhdpi/Property_40px_Huo.png" mode="">
-					<img v-else-if="fiveEle[0] ==='土'" src="/static/drawable-xhdpi/Property_40px_Tu.png" mode="">
-					<img v-else-if="fiveEle[0] ==='无'" src="/static/drawable-xhdpi/Property_40px_Wu.png" mode="">
-					<img v-else-if="fiveEle[0] ==='鬼'" src="/static/drawable-xhdpi/Property_40px_Gui.png" mode="">
-				</view>
-				<view class="name">
-					{{name}}
-				</view>
-		</view>
-		<view v-else class="contain">
+		<view v-if="search" class="contain">
 			<view style="background-image: url('/static/drawable-xhdpi/ILLUSTRATION_Card_Background.png')" 
-				class="imgshow" v-for="(item,index) of spriteData" @click="toClick(item)">
+				class="imgshow" v-for="(item,index) of filterSpriteData" @click="toClick(item)">
 					<view class="mainImg">
-						<image style="width:100%" :src="item.bodyImgName" lazy-load mode="widthFix"></image>
+						<image style="width:100%" class="image"  :data-index="index" :src="(sprite.bodyImgUrl + item.bodyImgName)" mode="widthFix"></image>
 					</view>
 					<view class="characteristic">
 						<img v-if="item.fiveEle[0] ==='金'" src="/static/drawable-xhdpi/Property_40px_Jin.png" mode="">
@@ -52,45 +34,71 @@
 					</view>
 			</view>
 		</view>
-		<view v-if="load" class="footer">
-			<view>正在努力加载中......</view>
+		<view v-else class="contain">
+			<view style="background-image: url('/static/drawable-xhdpi/ILLUSTRATION_Card_Background.png')" 
+				class="imgshow" v-for="(item,index) of spriteData" @click="toClick(item)">
+					<view class="mainImg">
+						<image style="width:100%" class="image" :class="{lazy:!item.show}" :data-index="index" :src="item.show ? (sprite.bodyImgUrl + item.bodyImgName):''" mode="widthFix"></image>
+					</view>
+					<view class="characteristic">
+						<img v-if="item.fiveEle[0] ==='金'" src="/static/drawable-xhdpi/Property_40px_Jin.png" mode="">
+						<img v-else-if="item.fiveEle[0] ==='木'" src="/static/drawable-xhdpi/Property_40px_Mu.png" mode="">
+						<img v-else-if="item.fiveEle[0] ==='水'" src="/static/drawable-xhdpi/Property_40px_Shui.png" mode="">
+						<img v-else-if="item.fiveEle[0] ==='火'" src="/static/drawable-xhdpi/Property_40px_Huo.png" mode="">
+						<img v-else-if="item.fiveEle[0] ==='土'" src="/static/drawable-xhdpi/Property_40px_Tu.png" mode="">
+						<img v-else-if="item.fiveEle[0] ==='无'" src="/static/drawable-xhdpi/Property_40px_Wu.png" mode="">
+						<img v-else-if="item.fiveEle[0] ==='鬼'" src="/static/drawable-xhdpi/Property_40px_Gui.png" mode="">
+					</view>
+					<view class="name">
+						{{item.name}}
+					</view>
+			</view>
 		</view>
 	</view>
 </template>
 
 <script>
 	import sprite from '../../yaolingtujian.json';
-	import uniIcon from "@/components/uni-icon/uni-icon.vue"
 	export default {
-		components: {uniIcon},
 		data() {
+			var spriteData = []
+			spriteData = sprite.spriteData.map(item => {
+				item.show = false
+				// item.bodyImgName = sprite.bodyImgUrl + item.bodyImgName
+				return item
+			})
 			return {
+				windowHeight: 0,
 				sprite: sprite,
-				spriteData: sprite.spriteData,
+				spriteData: spriteData,
+				show: false,
 				search: false,
 				closeShow: false,
-				load: true,
-				srcSearch: '',
-				fiveEle: [],
-				name: '',
+				imgLoad: true,
+				filterSpriteData: [],
 				value: '',
 			}
 		},
 		onLoad() {
-			this.spriteData.forEach(item => {
-				item.bodyImgName = this.sprite.bodyImgUrl + item.bodyImgName
-			})
+			// console.log(sprite.bodyImgUrl, this.spriteData[0].show, this.spriteData[0].bodyImgName)
+			this.windowHeight = uni.getSystemInfoSync().windowHeight
 		},
 		methods: {
+			load() {
+				uni.createSelectorQuery().selectAll('.lazy').boundingClientRect((images) => {
+					images.forEach((image, index) => {
+						if (image.top <= this.windowHeight) {
+							this.spriteData[image.dataset.index].show = true;
+						}
+					})
+				}).exec()
+			},
 			onEnter(event) {
 				event.preventDefault(); 
-				this.spriteData.forEach(item => {
-					if(event.target.value === item.name) {
-						this.search = true
-						this.srcSearch = item.bodyImgName
-						this.fiveEle = item.fiveEle
-						this.name = item.name
-						this.load = false
+				this.search = true
+				this.filterSpriteData = this.spriteData.filter(item => {
+					if(item.name.includes(event.target.value)) {
+						return item 
 					}
 				})
 			},
@@ -110,6 +118,17 @@
 				    url: `../imgDetail/index?id=${id}`
 				});
 			}
+		},
+		onShow() {
+			if (!this.show) {
+				this.show = true
+				setTimeout(() => {
+					this.load()
+				}, 150)
+			}
+		},
+		onPageScroll() {
+			this.load()
 		}
 	}
 </script>
@@ -121,8 +140,13 @@
 		font-family: "Source Han Sans CN";
 		color:#666;
 	}
+	image {
+		will-change: transform;
+	}
+	.image {
+		position: relative;
+	}
 	.top {
-		background-image: url("/static/drawable-xhdpi/妖灵图鉴最上底色图.png");
 		position: relative;
 	}
 	.search {
@@ -151,10 +175,9 @@
 	}
 	.contain {
 		display: flex;
-		padding: 17.36upx 27.08upx 18.75upx 27.08upx;
+		padding: 17.36upx 0upx 18.75upx 27.08upx;
 		flex-direction: row;
 		flex-wrap:wrap;
-		justify-content: space-between;
 		background-color: #f7f7f7;
 	}
 	.imgshow {
@@ -164,10 +187,12 @@
 		width:214.58upx;
 		height: 292.36upx;
 		margin-top: 14.58upx;
+		margin-right: 24upx;
 		position: relative;
 	}
 	.mainImg {
-		width: 100%;
+		width:214.58upx;
+		position: relative;
 	}
 	.name {
 		font-size: 25upx;
