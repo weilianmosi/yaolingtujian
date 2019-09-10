@@ -1,5 +1,5 @@
 <template>
-	<view style="background-image: url('/static/drawable-xhdpi/ILLUSTRATION_Background.png');" class="content">
+	<view style="background-image: url('/static/drawable-xhdpi/ILLUSTRATION_Background.png'); background-size: contain;" class="content">
 		<view class="top">
 			<view>妖灵图鉴</view>
 		</view>
@@ -8,7 +8,7 @@
 				<image style="width:100%" src="/static/drawable-xhdpi/ILLUSTRATION_Arrow_Left.png" mode="widthFix"></image>
 			</view>
 			<view class="detailimg">
-				<image style="width:100%" src="http://hy.gwgo.qq.com/sync/pet/512_body/5_XiaoHuanXiong_big.png" mode="widthFix"></image>
+				<image style="width:100%" :src="src" mode="widthFix"></image>
 			</view>
 			<view class="right">
 				<image style="width:100%" src="/static/drawable-xhdpi/ILLUSTRATION_Arrow_Right.png" mode="widthFix"></image>
@@ -42,7 +42,7 @@
 					<view class="highest">
 						最高
 						<view class="jishu">
-							(LV:20)
+							(LV:{{maxLv}})
 						</view>
 					</view>	
 				</view>
@@ -83,36 +83,36 @@
 					</view>
 					<view class="schedule">
 						<view class="wugong">
-							 <progress percent="20" activeColor="#6fdee7" backgroundColor="#4c4c4c" stroke-width="21"/>
+							 <progress :percent="pwugong" activeColor="#6fdee7" backgroundColor="#4c4c4c" stroke-width="10"/>
 						</view>
 						<view class="wufang">
-							 <progress percent="3" activeColor="#6fdee7" backgroundColor="#4c4c4c" stroke-width="21"/>
+							 <progress :percent="pwufang" activeColor="#6fdee7" backgroundColor="#4c4c4c" stroke-width="10"/>
 						</view>
 						<view class="fagong">
-							 <progress percent="14" activeColor="#6fdee7" backgroundColor="#4c4c4c" stroke-width="21"/>
+							 <progress :percent="pfagong" activeColor="#6fdee7" backgroundColor="#4c4c4c" stroke-width="10"/>
 						</view>
 						<view class="fafang">
-							 <progress percent="18" activeColor="#6fdee7" backgroundColor="#4c4c4c" stroke-width="21"/>
+							 <progress :percent="pfafang" activeColor="#6fdee7" backgroundColor="#4c4c4c" stroke-width="10"/>
 						</view>
 						<view class="life">
-							 <progress percent="23" activeColor="#6fdee7" backgroundColor="#4c4c4c" stroke-width="21"/>
+							 <progress :percent="plife" activeColor="#6fdee7" backgroundColor="#4c4c4c" stroke-width="10"/>
 						</view>
 					</view>
 					<view class="digital">
 						<view class="digital1">
-							246
+							{{wugong}}
 						</view>
 						<view class="digital2">
-							285
+							{{wufang}}
 						</view>
 						<view class="digital3">
-							246
+							{{fagong}}
 						</view>
 						<view class="digital4">
-							300
+							{{fafang}}
 						</view>
 						<view class="digital5">
-							1035
+							{{life}}
 						</view>
 					</view>
 				</view>
@@ -135,11 +135,25 @@
 								克制
 							</view>
 							<view class="resimg">
-								<view style="width:55.55upx;">
-									<image style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Shui.png" mode="widthFix"></image>
-								</view>
-								<view style="width:55.55upx; margin-left: 11.11upx;">
-									<image style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Yao.png" mode="widthFix"></image>
+								<view v-for="item of restraintAttr" style="width:55.55upx; margin-left: 11.11upx;">
+									<image v-if="item === '冰'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Bing.png" mode="widthFix"></image>
+									<image v-else-if="item === '毒'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Du.png" mode="widthFix"></image>
+									<image v-else-if="item === '风'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Fong.png" mode="widthFix"></image>
+									<image v-else-if="item === '鬼'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Gui.png" mode="widthFix"></image>
+									<image v-else-if="item === '火'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Huo.png" mode="widthFix"></image>
+									<image v-else-if="item === '金'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Jin.png" mode="widthFix"></image>
+									<image v-else-if="item === '空'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Kong.png" mode="widthFix"></image>
+									<image v-else-if="item === '雷'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Lei.png" mode="widthFix"></image>
+									<image v-else-if="item === '烈'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Lie.png" mode="widthFix"></image>
+									<image v-else-if="item === '魔'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Mo.png" mode="widthFix"></image>
+									<image v-else-if="item === '木'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Mu.png" mode="widthFix"></image>
+									<image v-else-if="item === '煞'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Sha.png" mode="widthFix"></image>
+									<image v-else-if="item === '圣'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Sheng.png" mode="widthFix"></image>
+									<image v-else-if="item === '水'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Shui.png" mode="widthFix"></image>
+									<image v-else-if="item === '土'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Tu.png" mode="widthFix"></image>
+									<image v-else-if="item === '无'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Wu.png" mode="widthFix"></image>
+									<image v-else-if="item === '仙'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Xian.png" mode="widthFix"></image>
+									<image v-else style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Yao.png" mode="widthFix"></image>
 								</view>
 							</view>
 							<view class="restext" style="margin-top:9.72upx">
@@ -154,11 +168,25 @@
 								被克制
 							</view>
 							<view class="resimg">
-								<view style="width:55.55upx;">
-									<image style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Mu.png" mode="widthFix"></image>
-								</view>
-								<view style="width:55.55upx; margin-left: 11.11upx;">
-									<image style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Lei.png" mode="widthFix"></image>
+								<view v-for="item of beRestraintAttr" style="width:55.55upx; margin-left: 11.11upx;">
+									<image v-if="item === '冰'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Bing.png" mode="widthFix"></image>
+									<image v-else-if="item === '毒'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Du.png" mode="widthFix"></image>
+									<image v-else-if="item === '风'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Fong.png" mode="widthFix"></image>
+									<image v-else-if="item === '鬼'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Gui.png" mode="widthFix"></image>
+									<image v-else-if="item === '火'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Huo.png" mode="widthFix"></image>
+									<image v-else-if="item === '金'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Jin.png" mode="widthFix"></image>
+									<image v-else-if="item === '空'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Kong.png" mode="widthFix"></image>
+									<image v-else-if="item === '雷'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Lei.png" mode="widthFix"></image>
+									<image v-else-if="item === '烈'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Lie.png" mode="widthFix"></image>
+									<image v-else-if="item === '魔'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Mo.png" mode="widthFix"></image>
+									<image v-else-if="item === '木'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Mu.png" mode="widthFix"></image>
+									<image v-else-if="item === '煞'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Sha.png" mode="widthFix"></image>
+									<image v-else-if="item === '圣'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Sheng.png" mode="widthFix"></image>
+									<image v-else-if="item === '水'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Shui.png" mode="widthFix"></image>
+									<image v-else-if="item === '土'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Tu.png" mode="widthFix"></image>
+									<image v-else-if="item === '无'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Wu.png" mode="widthFix"></image>
+									<image v-else-if="item === '仙'" style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Xian.png" mode="widthFix"></image>
+									<image v-else style="width:100%;" src="/static/drawable-xhdpi/Property_80px_Yao.png" mode="widthFix"></image>
 								</view>
 							</view>
 							<view class="restext" style="margin-top:9.72upx">
@@ -184,44 +212,44 @@
 					<view class="skill">
 						<view class="skillDetail">
 							<view class="skillTop">
-								<view class="choupi">
-									臭屁
+								<view class="skillName">
+									{{skillName}}
 								</view>
 								<view class="cdimg">
 									<image style="width:100%; margin-top:-10.41upx" src="/static/drawable-xhdpi/ILLUSTRATION_consume_Icon.png" mode="widthFix"></image>
-									<view style="color: #7feded; margin-left: 27.77upx; margin-top: -34.02upx;">2</view>
+									<view style="color: #7feded; margin-left: 27.77upx; margin-top: -34.02upx;">{{energyCost}}</view>
 								</view>
 								<view class="cd">
-									CD:<text style="color: #7feded">2</text>秒
+									CD:<text style="color: #7feded">{{cd}}</text>秒
 								</view>
 							</view>
-							<view class="skillBottom">
-								臭不可闻！！！造成<text style="color: #ff6969">44%</text>的物理攻击力伤害
+							<view class="skilldesc" v-html="desc">
+								
 							</view>
 						</view>
 						<view class="skillDescription">升级详情</view>
 						<view class="skillGrade">
 							<view class="lv2">
-								<text style="color:#93bad4;font-size: 23.61upx;margin-right:22.91upx">LV2</text>
-								造成<text style="color:#ff6969">49%</text>的物理攻击力伤害
+								<text style="color:#93bad4;font-size: 23.61upx;">LV2</text>
+								<view class="upLv" v-html="upDesc2"></view>
 								<view class="xuxian"></view>
 								<view class="yuan"></view>
 							</view>
 							<view class="lv3">
-								<text style="color:#93bad4;font-size: 23.61upx;margin-right:22.91upx">LV3</text>
-								造成<text style="color:#ff6969">55%</text>的物理攻击力伤害
+								<text style="color:#93bad4;font-size: 23.61upx;">LV3</text>
+								<view class="upLv" v-html="upDesc3"></view>
 								<view class="xuxian"></view>
 								<view class="yuan"></view>
 							</view>
 							<view class="lv4">
-								<text style="color:#93bad4;font-size: 23.61upx;margin-right:22.91upx">LV4</text>
-								造成<text style="color:#ff6969">60%</text>的物理攻击力伤害
+								<text style="color:#93bad4;font-size: 23.61upx;">LV4</text>
+								<view class="upLv" v-html="upDesc4"></view>
 								<view class="xuxian"></view>
 								<view class="yuan"></view>
 							</view>
 							<view class="lv5">
-								<text style="color:#93bad4;font-size: 23.61upx;margin-right:22.91upx">LV5</text>
-								造成<text style="color:#ff6969">66%</text>的物理攻击力伤害
+								<text style="color:#93bad4;font-size: 23.61upx;">LV5</text>
+								<view class="upLv" v-html="upDesc5"></view>
 							</view>
 						</view>
 					</view>
@@ -232,17 +260,94 @@
 </template>
 
 <script>
+	import sprite from '../../yaolingtujian.json';
+	import skill from '../../SpriteSkillData.json';
+	
 	export default {
 		data() {
 			return {
-				
+				sprite: sprite,
+				spriteData: sprite.spriteData,
+				skill: skill,
+				spriteSkillData: skill.spriteSkillData,
+				src: '',
+				maxLv: '',
+				wugong: '',
+				wufang: '',
+				fagong: '',
+				fafang: '',
+				life: '',
+				pwugong: '',
+				pwufang: '',
+				pfagong: '',
+				pfafang: '',
+				plife: '',
+				restraintAttr: [],
+				beRestraintAttr: [],
+				skillName: '',
+				cd: '2',
+				energyCost: '2',
+				upDesc1: '',
+				desc: '',
+				descValItem1: [],
+				descValItem2: [],
+				descValItem3: [],
+				upDesc1ValItem1: [],
 			}
 		},
-		onLoad() {
-
+		onLoad(option) {
+			this.spriteData.forEach(item => {
+				if(option["id"] == item.id) {
+					this.src = item.bodyImgName
+					this.maxLv = item.levMax
+					this.wugong = item.basePhyAtk
+					this.wufang = item.basePhyDef
+					this.fagong = item.baseSpeAtk
+					this.fafang = item.baseSpeDef
+					this.life = item.baseHp
+					this.pwugong = item.basePhyAtk / this.sprite.maxPhyAtk
+					this.pwufang = item.basePhyDef / this.sprite.maxPhyDef
+					this.pfafong = item.baseSpeAtk / this.sprite.maxSpeAtk
+					this.pfafang = item.baseSpeAtk / this.sprite.maxSpeDef
+					this.plife = item.baseHp / this.sprite.maxHp
+					this.restraintAttr = item.restraintAttr
+					this.beRestraintAttr = item.beRestraintAttr
+				}
+			})
+			this.spriteSkillData.forEach(skillItem => {
+				if(option["id"] == skillItem.id) {
+					var activeSkill1 = skillItem.activeSkill1
+					this.skillName = activeSkill1.skillName
+					this.cd = activeSkill1.cd
+					this.energyCost = activeSkill1.energyCost
+					this.desc = activeSkill1.desc
+					this.upDesc1 = activeSkill1.upDesc1
+					this.descValItem1 = activeSkill1.descVal["$Item1$"]
+					this.descValItem2 = activeSkill1.descVal["$Item2$"]
+					this.descValItem3 = activeSkill1.descVal["$Item3$"]
+					this.upDesc1ValItem1 = activeSkill1.upDesc1Val["$Item1$"]
+					this.desc = this.desc.replace('$Item1$',`${this.descValItem1[0]}`)
+					this.desc = this.desc.replace('$Item2$',`${this.descValItem2[0]}`)
+					this.desc = this.desc.replace('$Item3$',`${this.descValItem3[0]}`)
+				}
+			})
+		},
+		computed:{
+			upDesc2: function() {
+				return this.upDesc1.replace('$Item1$',`${this.upDesc1ValItem1[1]}`)
+			},
+			upDesc3: function() {
+				return this.upDesc1.replace('$Item1$',`${this.upDesc1ValItem1[2]}`)
+			},
+			upDesc4: function() {
+				return this.upDesc1.replace('$Item1$',`${this.upDesc1ValItem1[3]}`)
+			},
+			upDesc5: function() {
+				return this.upDesc1.replace('$Item1$',`${this.upDesc1ValItem1[4]}`)
+			}
 		},
 		methods: {
-
+			
 		}
 	}
 </script>
@@ -254,7 +359,7 @@
 		/* align-items: center;
 		justify-content: center; */
 		font-family: "Source Han Sans CN";
-		background-size: contain;
+		background-repeat: no-repeat;
 	}
 	.top {
 		height:75.69upx;
@@ -513,7 +618,7 @@
 	.resimg {
 		display: flex;
 		flex-direction: row;
-		margin:18.75upx auto 0 65.97upx;	
+		margin:18.75upx auto 0 54.86upx;	
 	}
 	.restext {
 		margin-left: 65.97upx;
@@ -568,10 +673,10 @@
 	.skillTop {
 		display: flex;
 		flex-direction: row;
-		xjustify-content: space-between;
-		width: 331.25upx;
+		justify-content: flex-start;
+		xwidth: 331.25upx;
 	}
-	.choupi {
+	.skillName {
 		font-size: 29.16upx;
 		color: #666;
 	}
@@ -593,10 +698,15 @@
 		box-sizing: border-box;
 		padding-top: 4.16upx;
 	}
-	.skillBottom {
+	.skilldesc {
 		font-size: 18.05upx;
 		color:#666;
+		margin-left: 170.13upx;
 	}
+	/* .skillupdesc {
+		font-size: 18.05upx;
+		color:#666;
+	} */
 	.skillDescription {
 		font-size: 29.16upx;
 		color: #666;
@@ -631,6 +741,12 @@
 		position: relative;
 		top:235.41upx;
 		left: 33.33upx;
+	}
+	.upLv {
+		position: absolute;
+		top: 3.47upx;
+		left: 62.5upx;
+		color: #666;
 	}
 	.xuxian {
 		position:absolute;

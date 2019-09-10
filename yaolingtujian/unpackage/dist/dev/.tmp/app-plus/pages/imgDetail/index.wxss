@@ -12,7 +12,7 @@
 	/* align-items: center;
 	justify-content: center; */
 	font-family: "Source Han Sans CN";
-	background-size: contain;
+	background-repeat: no-repeat;
 }
 .top {
 	height:75.69rpx;
@@ -369,7 +369,7 @@
 	-webkit-flex-direction: row;
 	    -ms-flex-direction: row;
 	        flex-direction: row;
-	margin:18.75rpx auto 0 65.97rpx;
+	margin:18.75rpx auto 0 54.86rpx;
 }
 .restext {
 	margin-left: 65.97rpx;
@@ -460,10 +460,13 @@
 	-webkit-flex-direction: row;
 	    -ms-flex-direction: row;
 	        flex-direction: row;
-	xjustify-content: space-between;
-	width: 331.25rpx;
+	-webkit-box-pack: start;
+	-webkit-justify-content: flex-start;
+	    -ms-flex-pack: start;
+	        justify-content: flex-start;
+	xwidth: 331.25rpx;
 }
-.choupi {
+.skillName {
 	font-size: 29.16rpx;
 	color: #666;
 }
@@ -486,10 +489,15 @@
 	        box-sizing: border-box;
 	padding-top: 4.16rpx;
 }
-.skillBottom {
+.skilldesc {
 	font-size: 18.05rpx;
 	color:#666;
+	margin-left: 170.13rpx;
 }
+/* .skillupdesc {
+	font-size: 18.05upx;
+	color:#666;
+} */
 .skillDescription {
 	font-size: 29.16rpx;
 	color: #666;
@@ -525,6 +533,12 @@
 	position: relative;
 	top:235.41rpx;
 	left: 33.33rpx;
+}
+.upLv {
+	position: absolute;
+	top: 3.47rpx;
+	left: 62.5rpx;
+	color: #666;
 }
 .xuxian {
 	position:absolute;

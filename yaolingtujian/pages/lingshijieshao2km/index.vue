@@ -4,14 +4,14 @@
 			灵石介绍
 		</view>
 		<view style="background-image: url('/static/drawable-xhdpi/INTRODUCTION_Background.png');" class="lingshitupian">
-			<view style="background-image: url('/static/drawable-xhdpi/Bubble_Selected.png');" :class="two ? selected: nselected" @click="twoClick">
+			<view style="background-image: url('/static/drawable-xhdpi/Bubble_Selected.png');" :class="two ? selected : nselected" @click="twoClick">
 				2千米灵石
 				<view :class="two ? selectedAfter: nselectedAfter">
 					<image style="width:100%" v-if="two" src="/static/drawable-xhdpi/2km_Lingshi_Big.png" mode="widthFix"></image>
 					<image style="width:100%" v-else src="/static/drawable-xhdpi/2km_Lingshi_Mini.png" mode="widthFix"></image>
 				</view>
 			</view>
-			<view style="background-image: url('/static/drawable-xhdpi/Bubble_Default.png');" :class="five ? selected: nselected" @click="fiveClick">
+			<view style="background-image: url('/static/drawable-xhdpi/Bubble_Default.png');" :class="five ? selected : nselected" @click="fiveClick">
 				5千米灵石
 				<view :class="five ? selectedAfter: nselectedAfter">
 					<image style="width:100%" v-if="five" src="/static/drawable-xhdpi/5km_Lingshi_Big.png" mode="widthFix"></image>
@@ -26,10 +26,24 @@
 				</view>
 			</view>
 		</view>
-		<view class="lingshishuju">
+		<view v-if="two" class="lingshishuju">
 			<view style="background-image: url('/static/drawable-xhdpi/Head_Background.png');" class="lingshilist" v-for="(item,index) of spriteData">
 				<view>
-					<image style="width:100%" :src="item.headImgName" mode="widthFix"></image>
+					<image style="width:100%" :src="item.headImgName" lazy-load mode="widthFix"></image>
+				</view>
+			</view>
+		</view>
+		<view v-else-if="five" class="lingshishuju">
+			<view style="background-image: url('/static/drawable-xhdpi/Head_Background.png');" class="lingshilist" v-for="(item,index) of spriteData">
+				<view>
+					<image style="width:100%" :src="item.headImgName" lazy-load mode="widthFix"></image>
+				</view>
+			</view>
+		</view>
+		<view v-else-if="ten" class="lingshishuju">
+			<view style="background-image: url('/static/drawable-xhdpi/Head_Background.png');" class="lingshilist" v-for="(item,index) of spriteData">
+				<view>
+					<image style="width:100%" :src="item.headImgName" lazy-load mode="widthFix"></image>
 				</view>
 			</view>
 		</view>

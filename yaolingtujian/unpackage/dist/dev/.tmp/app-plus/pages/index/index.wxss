@@ -14,6 +14,7 @@
 }
 .top {
 	background-image: url("/static/drawable-xhdpi/妖灵图鉴最上底色图.png");
+	position: relative;
 }
 .search {
 	width:705.55rpx;

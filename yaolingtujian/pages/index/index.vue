@@ -1,8 +1,11 @@
 <template>
 	<view class="content">
 		<view class="top">
+			<view v-if="closeShow" style="position:absolute; top: 2upx; left: 650upx; z-index: 5;font-size: 69.44upx;" @click="close">
+				×
+			</view>
 			<view class="search">
-				<input type="text"  value="" />
+				<input type="search" @confirm="onEnter" @input="handleClose" v-model="value"/>
 			</view>
 			<view class="nav">
 				<view>属性</view>
@@ -11,12 +14,31 @@
 				<view>排序</view>
 			</view>
 		</view>
-		<view class="contain">
-			<view style="background-image: url('/static/drawable-xhdpi/ILLUSTRATION_Card_Background.png')" class="imgshow" v-for="(item,index) of spriteData" >
+		<view style="background-image: url('/static/drawable-xhdpi/ILLUSTRATION_Card_Background.png'); margin-left: 27.08upx; margin-top: 31.94upx;" 
+			v-if="search" class="imgshow">
+				<view class="mainImg">
+					<image style="width:100%" :src="srcSearch" lazy-load mode="widthFix"></image>
+				</view>
+				<view class="characteristic">
+					<img v-if="fiveEle[0] ==='金'" src="/static/drawable-xhdpi/Property_40px_Jin.png" mode="">
+					<img v-else-if="fiveEle[0] ==='木'" src="/static/drawable-xhdpi/Property_40px_Mu.png" mode="">
+					<img v-else-if="fiveEle[0] ==='水'" src="/static/drawable-xhdpi/Property_40px_Shui.png" mode="">
+					<img v-else-if="fiveEle[0] ==='火'" src="/static/drawable-xhdpi/Property_40px_Huo.png" mode="">
+					<img v-else-if="fiveEle[0] ==='土'" src="/static/drawable-xhdpi/Property_40px_Tu.png" mode="">
+					<img v-else-if="fiveEle[0] ==='无'" src="/static/drawable-xhdpi/Property_40px_Wu.png" mode="">
+					<img v-else-if="fiveEle[0] ==='鬼'" src="/static/drawable-xhdpi/Property_40px_Gui.png" mode="">
+				</view>
+				<view class="name">
+					{{name}}
+				</view>
+		</view>
+		<view v-else class="contain">
+			<view style="background-image: url('/static/drawable-xhdpi/ILLUSTRATION_Card_Background.png')" 
+				class="imgshow" v-for="(item,index) of spriteData" @click="toClick(item)">
 					<view class="mainImg">
-						<image style="width:100%" :src="item.bodyImgName" mode="widthFix"></image>
+						<image style="width:100%" :src="item.bodyImgName" lazy-load mode="widthFix"></image>
 					</view>
-					<view class="characteristic" >
+					<view class="characteristic">
 						<img v-if="item.fiveEle[0] ==='金'" src="/static/drawable-xhdpi/Property_40px_Jin.png" mode="">
 						<img v-else-if="item.fiveEle[0] ==='木'" src="/static/drawable-xhdpi/Property_40px_Mu.png" mode="">
 						<img v-else-if="item.fiveEle[0] ==='水'" src="/static/drawable-xhdpi/Property_40px_Shui.png" mode="">
@@ -30,28 +52,64 @@
 					</view>
 			</view>
 		</view>
-		<view class="footer">
+		<view v-if="load" class="footer">
 			<view>正在努力加载中......</view>
 		</view>
 	</view>
 </template>
 
 <script>
-	import sprite from '../../yaolingtujian.json'
-		export default {
-			data() {
-				return {
-					sprite: sprite,
-					spriteData: sprite.spriteData 
-				}
-			},
-			onLoad() {
+	import sprite from '../../yaolingtujian.json';
+	import uniIcon from "@/components/uni-icon/uni-icon.vue"
+	export default {
+		components: {uniIcon},
+		data() {
+			return {
+				sprite: sprite,
+				spriteData: sprite.spriteData,
+				search: false,
+				closeShow: false,
+				load: true,
+				srcSearch: '',
+				fiveEle: [],
+				name: '',
+				value: '',
+			}
+		},
+		onLoad() {
+			this.spriteData.forEach(item => {
+				item.bodyImgName = this.sprite.bodyImgUrl + item.bodyImgName
+			})
+		},
+		methods: {
+			onEnter(event) {
+				event.preventDefault(); 
 				this.spriteData.forEach(item => {
-					item.bodyImgName = this.sprite.bodyImgUrl + item.bodyImgName
+					if(event.target.value === item.name) {
+						this.search = true
+						this.srcSearch = item.bodyImgName
+						this.fiveEle = item.fiveEle
+						this.name = item.name
+						this.load = false
+					}
 				})
 			},
-		methods: {
-
+			handleClose(event) {
+				if(event.target.value) {
+					this.closeShow = true
+				}
+			},
+			close() {
+				this.search = false 
+				this.closeShow = false
+				this.value = ''
+			},
+			toClick(item) {
+				var id = item.id
+				uni.navigateTo({
+				    url: `../imgDetail/index?id=${id}`
+				});
+			}
 		}
 	}
 </script>
@@ -65,6 +123,7 @@
 	}
 	.top {
 		background-image: url("/static/drawable-xhdpi/妖灵图鉴最上底色图.png");
+		position: relative;
 	}
 	.search {
 		width:705.55upx;
