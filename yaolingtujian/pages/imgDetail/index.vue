@@ -4,13 +4,13 @@
 			<view>妖灵图鉴</view>
 		</view>
 		<view class="detail">
-			<view class="left">
+			<view class="left" @click="previousClick">
 				<image style="width:100%" src="/static/drawable-xhdpi/ILLUSTRATION_Arrow_Left.png" mode="widthFix"></image>
 			</view>
 			<view class="detailimg">
 				<image style="width:100%" :src="(sprite.bodyImgUrl + src)" mode="widthFix"></image>
 			</view>
-			<view class="right">
+			<view class="right" @click="nextClick">
 				<image style="width:100%" src="/static/drawable-xhdpi/ILLUSTRATION_Arrow_Right.png" mode="widthFix"></image>
 			</view>
 		</view>
@@ -293,10 +293,11 @@
 				descValItem2: [],
 				descValItem3: [],
 				upDesc1ValItem1: [],
+				selectedIndex : -1,
 			}
 		},
 		onLoad(option) {
-			this.spriteData.forEach(item => {
+			this.spriteData.forEach((item,index) => {
 				if(option["id"] == item.id) {
 					this.src = item.bodyImgName
 					this.maxLv = item.levMax
@@ -312,6 +313,7 @@
 					this.plife = item.baseHp / this.sprite.maxHp
 					this.restraintAttr = item.restraintAttr
 					this.beRestraintAttr = item.beRestraintAttr
+					this.selectedIndex = index
 				}
 			})
 			this.spriteSkillData.forEach(skillItem => {
@@ -347,7 +349,27 @@
 			}
 		},
 		methods: {
-			
+			previousClick(){
+				var previousIndex = this.selectedIndex - 1
+				console.log(previousIndex)
+				if(previousIndex >= 0) {
+					var id = this.spriteData[previousIndex].id
+					uni.redirectTo({
+					    url: `../imgDetail/index?id=${id}`
+					});
+				}
+			},
+			nextClick() {
+				var nextIndex = this.selectedIndex + 1
+				console.log(nextIndex)
+				var length = this.spriteData.length 
+				if(nextIndex < length) {
+					var id = this.spriteData[nextIndex].id
+					uni.redirectTo({
+					    url: `../imgDetail/index?id=${id}`
+					});
+				}
+			}
 		}
 	}
 </script>
@@ -386,15 +408,17 @@
 		position:absolute;
 		top: 270.13upx;
 		left: 26.38upx;
-		width:28.47upx;
+		width: 35upx;
 		height: 47.91upx;
+		z-index: 10,
 	}
 	.right {
 		position: absolute;
 		top: 270.13upx;
 		right: 26.38upx;
-		width: 28.47upx;
+		width: 35upx;
 		height: 47.91upx;
+		z-index: 10,
 	}
 	.introduction {
 		margin-top: 27.77upx;

@@ -138,9 +138,6 @@
 			flex-direction: column;
 			font-size: 16.66upx;
 		}
-	image {
-			will-change: transform;
-		}
 	.top {
 		height:88.88upx;
 		width: 100%;
@@ -228,5 +225,8 @@
 		line-height: 27.77upx;
 		top: 6.25upx;
 		left: 24upx;
+	}
+	image {
+		will-change: transform;
 	}
 </style>

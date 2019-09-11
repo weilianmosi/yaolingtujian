@@ -12,9 +12,6 @@
 	font-family: "Source Han Sans CN";
 	color:#666;
 }
-image {
-	will-change: transform;
-}
 .image {
 	position: relative;
 }
@@ -106,5 +103,8 @@ image {
 .characteristic ._img {
 	width:38.88rpx;
 	height: 38.88rpx;
+}
+image {
+	will-change: transform;
 }
 

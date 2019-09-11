@@ -48,15 +48,17 @@
 	position:absolute;
 	top: 270.13rpx;
 	left: 26.38rpx;
-	width:28.47rpx;
+	width: 35rpx;
 	height: 47.91rpx;
+	z-index: 10,
 }
 .right {
 	position: absolute;
 	top: 270.13rpx;
 	right: 26.38rpx;
-	width: 28.47rpx;
+	width: 35rpx;
 	height: 47.91rpx;
+	z-index: 10,
 }
 .introduction {
 	margin-top: 27.77rpx;
