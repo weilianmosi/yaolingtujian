@@ -1561,7 +1561,7 @@ Z([3,'background-image:url(\x27/static/drawable-xhdpi/Head_Background.png\x27);'
 Z([3,'showImg'])
 Z([3,'true'])
 Z(z[11])
-Z([[6],[[7],[3,'item']],[3,'headImgName']])
+Z([[2,'+'],[[6],[[7],[3,'sprite']],[3,'headImgUrl']],[[6],[[7],[3,'item']],[3,'headImgName']]])
 Z(z[13])
 Z([3,'lingshAfter'])
 Z([a,[[2,'+'],[[2,'+'],[1,''],[[6],[[7],[3,'item']],[3,'name']]],[1,'']]])

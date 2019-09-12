@@ -26,7 +26,7 @@
 		<view v-if="two" class="lingshishuju">
 			<view style="background-image: url('/static/drawable-xhdpi/Head_Background.png');" class="lingshilist" v-for="(item,index) of twoLing">
 				<view class="showImg">
-					<image style="width:100%" :src="item.headImgName" lazy-load="true" mode="widthFix"></image>
+					<image style="width:100%" :src="sprite.headImgUrl + item.headImgName" lazy-load="true" mode="widthFix"></image>
 				</view>
 				<view class="lingshAfter">
 					{{item.name}}
@@ -36,7 +36,7 @@
 		<view v-else-if="five" class="lingshishuju">
 			<view style="background-image: url('/static/drawable-xhdpi/Head_Background.png');" class="lingshilist" v-for="(item,index) of fiveLing">
 				<view class="showImg">
-					<image style="width:100%" :src="item.headImgName" lazy-load="true" mode="widthFix"></image>
+					<image style="width:100%" :src="sprite.headImgUrl + item.headImgName" lazy-load="true" mode="widthFix"></image>
 				</view>
 				<view class="lingshAfter">
 					{{item.name}}
@@ -46,7 +46,7 @@
 		<view v-else-if="ten" class="lingshishuju">
 			<view style="background-image: url('/static/drawable-xhdpi/Head_Background.png');" class="lingshilist" v-for="(item,index) of tenLing">
 				<view class="showImg">
-					<image style="width:100%" :src="item.headImgName" lazy-load="true" mode="widthFix"></image>
+					<image style="width:100%" :src="sprite.headImgUrl + item.headImgName" lazy-load="true" mode="widthFix"></image>
 				</view>
 				<view class="lingshAfter">
 					{{item.name}}
@@ -85,9 +85,6 @@
 					}
 				}
 			})
-			this.twoLing.forEach(twoItem => {
-				twoItem.headImgName = this.sprite.headImgUrl + twoItem.headImgName
-			})
 			var fiveDropData = lingshi[1].dropData
 			this.fiveLing = this.spriteData.filter(item => {
 				for(let i = 0; i < fiveDropData.length; i++) {
@@ -96,9 +93,6 @@
 					}
 				}
 			})
-			this.fiveLing.forEach(fiveItem => {
-				fiveItem.headImgName = this.sprite.headImgUrl + fiveItem.headImgName
-			})
 			var tenDropData = lingshi[2].dropData
 			this.tenLing = this.spriteData.filter(item => {
 				for(let i = 0; i < tenDropData.length; i++) {
@@ -106,9 +100,6 @@
 						return item
 					}
 				}
-			})
-			this.tenLing.forEach(tenItem => {
-				tenItem.headImgName = this.sprite.headImgUrl + tenItem.headImgName
 			})
 		},
 		methods: {
